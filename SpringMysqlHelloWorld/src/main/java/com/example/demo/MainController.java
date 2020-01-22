@@ -1,9 +1,10 @@
-package com.example.userinfo;
+package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,15 +17,9 @@ public class MainController {
 	private UserRepository userRepository;
 
 		@PostMapping(path="/add")
-		public @ResponseBody String addNewUser (@RequestParam String name, 
-				@RequestParam String email) {
+		public UserInfo addNewUser (@RequestBody UserInfo userin) {
 			
-			UserInfo user = new UserInfo();
-			user.setName(name);
-			user.setEmail(email);
-			userRepository.save(user);
-			
-			return "Saved Succesfully";
+			return userRepository.save(userin);
 		}
 		
 		@GetMapping(path="/all")

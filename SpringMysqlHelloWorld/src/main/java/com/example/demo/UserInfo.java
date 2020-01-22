@@ -1,4 +1,4 @@
-package com.example.userinfo;
+package com.example.demo;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +16,7 @@ public class UserInfo {
 	
 	private String email;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
